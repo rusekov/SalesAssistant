@@ -19,6 +19,5 @@
 @property (strong, nonatomic) NSDate *dateOfLastUpdate;
 @property double latitude;
 @property double longitude;
-// image
 
 @end

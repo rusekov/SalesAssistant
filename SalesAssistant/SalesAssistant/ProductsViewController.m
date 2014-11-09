@@ -9,60 +9,58 @@
 #import "ProductsViewController.h"
 
 @interface ProductsViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tblView;
+@property (strong, nonatomic) NSMutableArray *results;
+@property (strong, nonatomic) UISearchController *searchController;
 
 @end
 
 @implementation ProductsViewController{
     NSMutableArray *items;
-    NSArray *searchResults;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    StockItem *i1 = [[StockItem alloc] init];
-    StockItem *i2 = [[StockItem alloc] init];
-    StockItem *i3 = [[StockItem alloc] init];
-    StockItem *i4 = [[StockItem alloc] init];
-    StockItem *i5 = [[StockItem alloc] init];
-    StockItem *i6 = [[StockItem alloc] init];
-    StockItem *i7 = [[StockItem alloc] init];
-    StockItem *i8 = [[StockItem alloc] init];
-    StockItem *i9 = [[StockItem alloc] init];
-    
-    i1.name = @"Orbit";
-    i2.name = @"Tic-Tac";
-    i3.name = @"Milka";
-    i4.name = @"Chio";
-    i5.name = @"Lavaza";
-    i6.name = @"Coca-Cola";
-    i7.name = @"Fanta";
-    i8.name = @"Sprite";
-    i9.name = @"Lindt";
-    
-    i1.price = 0.99;
-    i2.price = 0.89;
-    i3.price = 1.99;
-    i4.price = 2.99;
-    i5.price = 5.99;
-    i6.price = 1.20;
-    i7.price = 1.20;
-    i8.price = 1.20;
-    i9.price = 3.49;
-    
     items = [[NSMutableArray alloc] init];
-    
-    [items addObject:i1];
-    [items addObject:i2];
-    [items addObject:i3];
-    [items addObject:i4];
-    [items addObject:i5];
-    [items addObject:i6];
-    [items addObject:i7];
-    [items addObject:i8];
-    [items addObject:i9];
 
-    searchResults = [[NSArray alloc] init];
+    PFQuery *query = [PFQuery queryWithClassName:@"StockItem"];
+    [query orderByAscending:@"price"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                StockItem *item = [[StockItem alloc] init];
+                item.name = object[@"name"];
+                item.price = [object[@"price"] floatValue];
+                [items addObject:item];
+            }
+            [self.tblView reloadData];
+            Toast *toast = [Toast toastWithMessage:@"Products loaded" andColor:[UIColor blueColor]];
+            [toast showOnView:self.view];
+
+            self.results = [[NSMutableArray alloc] initWithCapacity:items.count];
+            UITableViewController *searchResultsController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
+            searchResultsController.tableView.dataSource = self;
+            searchResultsController.tableView.delegate = self;
+            
+            self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
+            
+            self.searchController.searchResultsUpdater = self;
+            
+            self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0);
+            
+            self.tblView.tableHeaderView = self.searchController.searchBar;
+            
+            self.definesPresentationContext = YES;
+
+
+        } else {
+            // Log details of the failure
+            Toast *toast = [Toast toastWithMessage:@"Error loading products" andColor:[UIColor redColor]];
+            [toast showOnView:self.view];
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,11 +68,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma Table View Methods
+#pragma mark Table View Methods
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return searchResults.count;
+    if (tableView == ((UITableViewController *)self.searchController.searchResultsController).tableView) {
+        return self.results.count;
     }
     else{
         return items.count;
@@ -86,46 +84,40 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
     
+    StockItem *currentItem;
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        cell.textLabel.text = ((StockItem *)[searchResults objectAtIndex:indexPath.row]).name;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"price: %.2f BGN",((StockItem *)[searchResults objectAtIndex:indexPath.row]).price];
-
+    if (tableView == ((UITableViewController *)self.searchController.searchResultsController).tableView) {
+        currentItem = [self.results objectAtIndex:indexPath.row];
     }
     else{
-        cell.textLabel.text = ((StockItem *)[items objectAtIndex:indexPath.row]).name;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"price: %.2f BGN",((StockItem *)[items objectAtIndex:indexPath.row]).price];
+        currentItem = [items objectAtIndex:indexPath.row];
     }
+    cell.textLabel.text = currentItem.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"price: %.2f BGN",currentItem.price];
     
     return cell;
 }
 
-#pragma Search Methods
+#pragma marks - UISearchResultUpdating Methods
+
+-(void) updateSearchResultsForSearchController:(UISearchController *)searchController{
+    NSString *searchString = [self.searchController.searchBar text];
+    
+    NSString *scope = [[self.searchController.searchBar scopeButtonTitles] objectAtIndex:[self.searchController.searchBar selectedScopeButtonIndex]];
+    
+    [self filterContentForSearchText:searchString scope:scope];
+    
+    [((UITableViewController *)self.searchController.searchResultsController).tableView reloadData];
+}
+
+#pragma Filtering Methods
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name beginswith[c] %@", searchText];
-    searchResults = [items filteredArrayUsingPredicate:predicate];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+    self.results = [NSMutableArray arrayWithArray:[items filteredArrayUsingPredicate:predicate]];
 }
-
-- (BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
-    
-    [self filterContentForSearchText:searchString scope: [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    
-    return YES;
-}
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

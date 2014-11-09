@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 #import "Customer.h"
 #import "StaticCustomers.h"
 
-@interface AddCustomerViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate>
+@interface AddCustomerViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 
 @end

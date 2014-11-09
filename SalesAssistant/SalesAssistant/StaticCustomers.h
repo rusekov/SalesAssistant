@@ -16,6 +16,8 @@
 
 - (NSArray*) cities;
 
-- (NSArray*) sortedCustomers;
+- (void) sortByNameCustomers;
+- (void) sortByDateCustomers;
+- (void) sortByTurnoverCustomers;
 
 @end

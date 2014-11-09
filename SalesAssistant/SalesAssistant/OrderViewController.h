@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 #import "Customer.h"
 #import "StockItem.h"
+#import "StaticCustomers.h"
+#import "CustomerDetailViewController.h"
+#import "Toast.h"
 
-@interface OrderViewController : UIViewController
+@interface OrderViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) Customer *currentCustomer;
 
 @end

@@ -7,74 +7,55 @@
 //
 
 #import "CustomersViewController.h"
+#import "AppDelegate.h"
+#import "Reachability.h"
 
 @interface CustomersViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tblView;
+@property (nonatomic) Reachability *internetReachability;
 
 @end
 
-@implementation CustomersViewController{
-    NSString * sofia;
-    NSString * plovdiv;
-}
+@implementation CustomersViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // creating test Customers
-    sofia = @"Sofia";
-    plovdiv = @"Plovdiv";
-    
-    Customer *c1 = [[Customer alloc] init];
-    Customer *c2 = [[Customer alloc] init];
-    Customer *c3 = [[Customer alloc] init];
-    Customer *c4 = [[Customer alloc] init];
-    
-    c1.companyName = @"Fantastico";
-    c1.contactName = @"Pesho";
-    c1.address = @"bul. Bulgaria 131";
-    c1.city = sofia;
-    c1.turnover = 1000;
-    c1.dateOfLastUpdate = [NSDate date];
-    c1.phoneNumber = @"0888840880";
-    
-    c2.companyName = @"Billa";
-    c2.contactName = @"Mitaka";
-    c2.address = @"ul. Akademik Stoyan Argirov 39";
-    c2.city = sofia;
-    c2.turnover = 2000;
-    c2.dateOfLastUpdate = [NSDate date];
-    c2.phoneNumber = @"0888840881";
-    
-    c3.companyName = @"Picadilly";
-    c3.contactName = @"Gogo";
-    c3.address = @"bul. Alaksander Stamboliiski 195a";
-    c3.city = sofia;
-    c3.turnover = 800;
-    c3.dateOfLastUpdate = [NSDate date];
-    c3.phoneNumber = @"0888840882";
+    [self observeReachability];
 
-    c4.companyName = @"Lidl";
-    c4.contactName = @"Penka";
-    c4.address = @"ploshtad Makedonia 2";
-    c4.city = plovdiv;
-    c4.turnover = 6000;
-    c4.dateOfLastUpdate = [NSDate date];
-    c4.phoneNumber = @"0888840883";
-    
-    [[[StaticCustomers customers] listOfCustommers] addObject:c1];
-    [[[StaticCustomers customers] listOfCustommers] addObject:c2];
-    [[[StaticCustomers customers] listOfCustommers] addObject:c3];
-    [[[StaticCustomers customers] listOfCustommers] addObject:c4];
-    
-    
     [self sectionedList];
-    
+    self.title = @"CUSTOMERS";
+    [[StaticCustomers customers] sortByNameCustomers];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 -(void) viewWillAppear:(BOOL)animated{
     [self.tabView reloadData];
 }
+
+#pragma mark Section Sort
+
+- (IBAction)sortCustommers:(UISegmentedControl *)sender {
+    switch ([sender selectedSegmentIndex]) {
+        case 0:
+            [[StaticCustomers customers] sortByNameCustomers];
+            break;
+        case 1:
+            [[StaticCustomers customers] sortByTurnoverCustomers];
+            break;
+        case 2:
+            [[StaticCustomers customers] sortByDateCustomers];
+            break;
+        default:
+            break;
+    }
+    [self.tabView reloadData];
+}
+
+#pragma Table View Methods
 
 - (NSArray*) sectionedList{
     NSMutableArray *list = [[NSMutableArray alloc] init];
@@ -85,14 +66,6 @@
     }
     return list;
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma Table View Methods
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return [self sectionedList].count;
@@ -123,8 +96,56 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+
+        //Fetch current customer from core data
+        Customer *c = [self sectionedList][indexPath.section][indexPath.row];
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = [appDelegate managedObjectContext];
+        NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Customer" inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDesc];
+        NSPredicate *pred =[NSPredicate predicateWithFormat:@"(companyName = %@)", c.companyName];
+        [request setPredicate:pred];
+        NSManagedObject *matches = nil;
+        
+        NSError *error;
+        NSArray *objects = [context executeFetchRequest:request
+                                                  error:&error];
+        //Update current customer data
+        if ([objects count] == 0)
+        {
+            NSLog(@"No matches");
+        }
+        else
+        {
+            matches = objects[0];
+            [[[StaticCustomers customers] listOfCustommers] removeObject:c];
+            [context deleteObject:matches];
+        }
+        
+        [context save:&error];
+        [self.tblView reloadData];
+        
+        //saving deleted customer at background
+        PFObject *dc = [PFObject objectWithClassName:@"DeletedCustomers"];
+        dc[@"companyName"] = c.companyName;
+        dc[@"city"] = c.city;
+        dc[@"address"] = c.address;
+        dc[@"contactPerson"] = c.contactName;
+        dc[@"phoneNumber"] = c.phoneNumber;
+        dc[@"turnover"] = [NSNumber numberWithDouble:c.turnover];
+        dc[@"latitude"] = [NSNumber numberWithDouble:c.latitude];
+        dc[@"longitude"] = [NSNumber numberWithDouble:c.longitude];
+        [dc saveInBackground];
+
+    }
+}
+
 #pragma mark - Navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"goToDetails"]) {
@@ -133,6 +154,39 @@
         
         Customer *selectedCustommer = [self sectionedList][path.section][path.row];
         [cmvc setCurrentCustomer:selectedCustommer];
+        
+        UIBarButtonItem *newBackButton =
+        [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                         style:UIBarButtonItemStylePlain
+                                        target:nil
+                                        action:nil];
+        [[self navigationItem] setBackBarButtonItem:newBackButton];
     }
 }
+
+#pragma mark Reachability methods
+
+-(void)observeReachability{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
+    self.internetReachability = [Reachability reachabilityForInternetConnection];
+    [self.internetReachability startNotifier];
+}
+
+- (void) reachabilityChanged:(NSNotification *)note
+{
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    if ([curReach connectionRequired])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IMPORTANT" message:@"This app needs internet connection!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+}
+
 @end
