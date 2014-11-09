@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 ILR. All rights reserved.
 //
 
-#import "OrderViewController.h"
+#import "SAOrderViewController.h"
 #import "AppDelegate.h"
 
-@interface OrderViewController ()
+@interface SAOrderViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *totalValue;
 @property (weak, nonatomic) IBOutlet UITableView *tblView;
 
 @end
 
-@implementation OrderViewController{
+@implementation SAOrderViewController{
     NSMutableArray *items;
     NSMutableArray *purchasedItems;
     double totalVal;

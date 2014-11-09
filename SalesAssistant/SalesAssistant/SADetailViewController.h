@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "Customer.h"
-#import "OrderViewController.h"
+#import "SACustomer.h"
+#import "SAOrderViewController.h"
 
 
-@interface CustomerDetailViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+@interface SADetailViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
-@property (nonatomic) Customer *currentCustomer;
+@property (nonatomic) SACustomer *currentCustomer;
 
 @end

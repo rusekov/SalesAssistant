@@ -11,10 +11,10 @@
 #import "SACustomer.h"
 #import "SAStockItem.h"
 #import "SAStaticCustomers.h"
-#import "CustomerDetailViewController.h"
+#import "SADetailViewController.h"
 #import "SAToast.h"
 
-@interface OrderViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SAOrderViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) SACustomer *currentCustomer;
 
 @end

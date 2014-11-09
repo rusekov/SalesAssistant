@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 ILR. All rights reserved.
 //
 
-#import "CustomerDetailViewController.h"
+#import "SADetailViewController.h"
 
-@interface CustomerDetailViewController ()
+@interface SADetailViewController ()
 @property (strong, nonatomic) IBOutlet MKMapView *myMapView;
 @property (weak, nonatomic) IBOutlet UILabel *city;
 @property (weak, nonatomic) IBOutlet UILabel *address;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation CustomerDetailViewController
+@implementation SADetailViewController
     
 
 - (void)viewDidLoad {
@@ -31,7 +31,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    Customer *lastcustommer = [[[StaticCustomers customers] listOfCustommers] lastObject];
+    SACustomer *lastcustommer = [[[SAStaticCustomers customers] listOfCustommers] lastObject];
     if (self.currentCustomer.companyName == lastcustommer.companyName) {
         self.currentCustomer.turnover = lastcustommer.turnover;
         self.currentCustomer.dateOfLastUpdate = lastcustommer.dateOfLastUpdate;
@@ -78,7 +78,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"goToOrder"]) {
-        OrderViewController *ovc = [segue destinationViewController];
+        SAOrderViewController *ovc = [segue destinationViewController];
         [ovc setCurrentCustomer:self.currentCustomer];
     }
 }

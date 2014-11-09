@@ -12,6 +12,6 @@
         <attribute name="turnover" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Customer" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="Customer" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

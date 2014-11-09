@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 ILR. All rights reserved.
 //
 
-#import "AddCustomerViewController.h"
+#import "SAAddCustomerViewController.h"
 #import "AppDelegate.h"
 #import "SAValidator.h"
 
-@interface AddCustomerViewController ()
+@interface SAAddCustomerViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *companyName;
 @property (weak, nonatomic) IBOutlet UITextField *contactPerson;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation AddCustomerViewController{
+@implementation SAAddCustomerViewController{
     CLLocationManager *locationManager;
     CLGeocoder *geocoder;
     CLPlacemark *placemark;

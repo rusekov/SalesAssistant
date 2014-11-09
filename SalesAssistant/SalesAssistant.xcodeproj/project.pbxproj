@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		842315BC1A0EC1B6001303A3 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 842315BB1A0EC1B6001303A3 /* Toast.m */; };
-		847749191A0E4D5D00098F73 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 847749181A0E4D5D00098F73 /* Reachability.m */; };
-		84A0D8851A0A7B12007C7184 /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0D8841A0A7B12007C7184 /* OrderViewController.m */; };
-		84A0D8881A0A8462007C7184 /* AddCustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0D8871A0A8462007C7184 /* AddCustomerViewController.m */; };
+		840350721A10169B0084C935 /* SAValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 840350711A10169B0084C935 /* SAValidator.m */; };
+		842315BC1A0EC1B6001303A3 /* SAToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 842315BB1A0EC1B6001303A3 /* SAToast.m */; };
+		847749191A0E4D5D00098F73 /* SAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 847749181A0E4D5D00098F73 /* SAReachability.m */; };
+		84A0D8851A0A7B12007C7184 /* SAOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0D8841A0A7B12007C7184 /* SAOrderViewController.m */; };
+		84A0D8881A0A8462007C7184 /* SAAddCustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0D8871A0A8462007C7184 /* SAAddCustomerViewController.m */; };
 		84A0D88A1A0A875D007C7184 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A0D8891A0A875C007C7184 /* AVFoundation.framework */; };
 		84A51CBB1A08F422006D5DA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CBA1A08F422006D5DA2 /* main.m */; };
 		84A51CBE1A08F422006D5DA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CBD1A08F422006D5DA2 /* AppDelegate.m */; };
@@ -18,12 +19,12 @@
 		84A51CC91A08F422006D5DA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A51CC81A08F422006D5DA2 /* Images.xcassets */; };
 		84A51CCC1A08F423006D5DA2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A51CCA1A08F423006D5DA2 /* LaunchScreen.xib */; };
 		84A51CD81A08F423006D5DA2 /* SalesAssistantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CD71A08F423006D5DA2 /* SalesAssistantTests.m */; };
-		84A51CE31A09023C006D5DA2 /* ProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CE21A09023C006D5DA2 /* ProductsViewController.m */; };
-		84A51CE61A090253006D5DA2 /* CustomersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CE51A090253006D5DA2 /* CustomersViewController.m */; };
-		84A51CEA1A09298D006D5DA2 /* StockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CE91A09298D006D5DA2 /* StockItem.m */; };
-		84A51CED1A0929B1006D5DA2 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CEC1A0929B1006D5DA2 /* Customer.m */; };
-		84A5743F1A0B93E90090F66C /* StaticCustomers.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5743E1A0B93E90090F66C /* StaticCustomers.m */; };
-		84EF0B8A1A099082000A78E2 /* CustomerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF0B891A099082000A78E2 /* CustomerDetailViewController.m */; };
+		84A51CE31A09023C006D5DA2 /* SAProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CE21A09023C006D5DA2 /* SAProductsViewController.m */; };
+		84A51CE61A090253006D5DA2 /* SACustomersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CE51A090253006D5DA2 /* SACustomersViewController.m */; };
+		84A51CEA1A09298D006D5DA2 /* SAStockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CE91A09298D006D5DA2 /* SAStockItem.m */; };
+		84A51CED1A0929B1006D5DA2 /* SACustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51CEC1A0929B1006D5DA2 /* SACustomer.m */; };
+		84A5743F1A0B93E90090F66C /* SAStaticCustomers.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5743E1A0B93E90090F66C /* SAStaticCustomers.m */; };
+		84EF0B8A1A099082000A78E2 /* SADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF0B891A099082000A78E2 /* SADetailViewController.m */; };
 		84EF0B8C1A0A35C7000A78E2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EF0B8B1A0A35C7000A78E2 /* MapKit.framework */; };
 		84EF0B8E1A0A45C6000A78E2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EF0B8D1A0A45C6000A78E2 /* CoreLocation.framework */; };
 		84F942CD1A0CD89000FA830A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F942CC1A0CD89000FA830A /* CoreData.framework */; };
@@ -55,14 +56,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		842315BA1A0EC1B6001303A3 /* Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toast.h; sourceTree = "<group>"; };
-		842315BB1A0EC1B6001303A3 /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
-		847749171A0E4D5D00098F73 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		847749181A0E4D5D00098F73 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		84A0D8831A0A7B12007C7184 /* OrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderViewController.h; sourceTree = "<group>"; };
-		84A0D8841A0A7B12007C7184 /* OrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewController.m; sourceTree = "<group>"; };
-		84A0D8861A0A8462007C7184 /* AddCustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerViewController.h; sourceTree = "<group>"; };
-		84A0D8871A0A8462007C7184 /* AddCustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerViewController.m; sourceTree = "<group>"; };
+		840350701A10169B0084C935 /* SAValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAValidator.h; sourceTree = "<group>"; };
+		840350711A10169B0084C935 /* SAValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAValidator.m; sourceTree = "<group>"; };
+		842315BA1A0EC1B6001303A3 /* SAToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAToast.h; sourceTree = "<group>"; };
+		842315BB1A0EC1B6001303A3 /* SAToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAToast.m; sourceTree = "<group>"; };
+		847749171A0E4D5D00098F73 /* SAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAReachability.h; sourceTree = "<group>"; };
+		847749181A0E4D5D00098F73 /* SAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAReachability.m; sourceTree = "<group>"; };
+		84A0D8831A0A7B12007C7184 /* SAOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOrderViewController.h; sourceTree = "<group>"; };
+		84A0D8841A0A7B12007C7184 /* SAOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOrderViewController.m; sourceTree = "<group>"; };
+		84A0D8861A0A8462007C7184 /* SAAddCustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAAddCustomerViewController.h; sourceTree = "<group>"; };
+		84A0D8871A0A8462007C7184 /* SAAddCustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAAddCustomerViewController.m; sourceTree = "<group>"; };
 		84A0D8891A0A875C007C7184 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84A51CB51A08F422006D5DA2 /* SalesAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalesAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A51CB91A08F422006D5DA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,18 +78,18 @@
 		84A51CD11A08F423006D5DA2 /* SalesAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalesAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A51CD61A08F423006D5DA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A51CD71A08F423006D5DA2 /* SalesAssistantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SalesAssistantTests.m; sourceTree = "<group>"; };
-		84A51CE11A09023C006D5DA2 /* ProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsViewController.h; sourceTree = "<group>"; };
-		84A51CE21A09023C006D5DA2 /* ProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsViewController.m; sourceTree = "<group>"; };
-		84A51CE41A090253006D5DA2 /* CustomersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomersViewController.h; sourceTree = "<group>"; };
-		84A51CE51A090253006D5DA2 /* CustomersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomersViewController.m; sourceTree = "<group>"; };
-		84A51CE81A09298D006D5DA2 /* StockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockItem.h; sourceTree = "<group>"; };
-		84A51CE91A09298D006D5DA2 /* StockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockItem.m; sourceTree = "<group>"; };
-		84A51CEB1A0929B1006D5DA2 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
-		84A51CEC1A0929B1006D5DA2 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
-		84A5743D1A0B93E90090F66C /* StaticCustomers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticCustomers.h; sourceTree = "<group>"; };
-		84A5743E1A0B93E90090F66C /* StaticCustomers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticCustomers.m; sourceTree = "<group>"; };
-		84EF0B881A099082000A78E2 /* CustomerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailViewController.h; sourceTree = "<group>"; };
-		84EF0B891A099082000A78E2 /* CustomerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailViewController.m; sourceTree = "<group>"; };
+		84A51CE11A09023C006D5DA2 /* SAProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAProductsViewController.h; sourceTree = "<group>"; };
+		84A51CE21A09023C006D5DA2 /* SAProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAProductsViewController.m; sourceTree = "<group>"; };
+		84A51CE41A090253006D5DA2 /* SACustomersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACustomersViewController.h; sourceTree = "<group>"; };
+		84A51CE51A090253006D5DA2 /* SACustomersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACustomersViewController.m; sourceTree = "<group>"; };
+		84A51CE81A09298D006D5DA2 /* SAStockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAStockItem.h; sourceTree = "<group>"; };
+		84A51CE91A09298D006D5DA2 /* SAStockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAStockItem.m; sourceTree = "<group>"; };
+		84A51CEB1A0929B1006D5DA2 /* SACustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACustomer.h; sourceTree = "<group>"; };
+		84A51CEC1A0929B1006D5DA2 /* SACustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACustomer.m; sourceTree = "<group>"; };
+		84A5743D1A0B93E90090F66C /* SAStaticCustomers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAStaticCustomers.h; sourceTree = "<group>"; };
+		84A5743E1A0B93E90090F66C /* SAStaticCustomers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAStaticCustomers.m; sourceTree = "<group>"; };
+		84EF0B881A099082000A78E2 /* SADetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SADetailViewController.h; sourceTree = "<group>"; };
+		84EF0B891A099082000A78E2 /* SADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SADetailViewController.m; sourceTree = "<group>"; };
 		84EF0B8B1A0A35C7000A78E2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		84EF0B8D1A0A45C6000A78E2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		84F942CC1A0CD89000FA830A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -146,10 +149,12 @@
 		8477491D1A0E7A5900098F73 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				847749171A0E4D5D00098F73 /* Reachability.h */,
-				847749181A0E4D5D00098F73 /* Reachability.m */,
-				842315BA1A0EC1B6001303A3 /* Toast.h */,
-				842315BB1A0EC1B6001303A3 /* Toast.m */,
+				847749171A0E4D5D00098F73 /* SAReachability.h */,
+				847749181A0E4D5D00098F73 /* SAReachability.m */,
+				842315BA1A0EC1B6001303A3 /* SAToast.h */,
+				842315BB1A0EC1B6001303A3 /* SAToast.m */,
+				840350701A10169B0084C935 /* SAValidator.h */,
+				840350711A10169B0084C935 /* SAValidator.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -157,16 +162,16 @@
 		8477491E1A0E7A7B00098F73 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				84A51CE11A09023C006D5DA2 /* ProductsViewController.h */,
-				84A51CE21A09023C006D5DA2 /* ProductsViewController.m */,
-				84A51CE41A090253006D5DA2 /* CustomersViewController.h */,
-				84A51CE51A090253006D5DA2 /* CustomersViewController.m */,
-				84EF0B881A099082000A78E2 /* CustomerDetailViewController.h */,
-				84EF0B891A099082000A78E2 /* CustomerDetailViewController.m */,
-				84A0D8831A0A7B12007C7184 /* OrderViewController.h */,
-				84A0D8841A0A7B12007C7184 /* OrderViewController.m */,
-				84A0D8861A0A8462007C7184 /* AddCustomerViewController.h */,
-				84A0D8871A0A8462007C7184 /* AddCustomerViewController.m */,
+				84A51CE11A09023C006D5DA2 /* SAProductsViewController.h */,
+				84A51CE21A09023C006D5DA2 /* SAProductsViewController.m */,
+				84A51CE41A090253006D5DA2 /* SACustomersViewController.h */,
+				84A51CE51A090253006D5DA2 /* SACustomersViewController.m */,
+				84EF0B881A099082000A78E2 /* SADetailViewController.h */,
+				84EF0B891A099082000A78E2 /* SADetailViewController.m */,
+				84A0D8831A0A7B12007C7184 /* SAOrderViewController.h */,
+				84A0D8841A0A7B12007C7184 /* SAOrderViewController.m */,
+				84A0D8861A0A8462007C7184 /* SAAddCustomerViewController.h */,
+				84A0D8871A0A8462007C7184 /* SAAddCustomerViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -236,12 +241,12 @@
 		84A51CE71A09293B006D5DA2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				84A51CE81A09298D006D5DA2 /* StockItem.h */,
-				84A51CE91A09298D006D5DA2 /* StockItem.m */,
-				84A51CEB1A0929B1006D5DA2 /* Customer.h */,
-				84A51CEC1A0929B1006D5DA2 /* Customer.m */,
-				84A5743D1A0B93E90090F66C /* StaticCustomers.h */,
-				84A5743E1A0B93E90090F66C /* StaticCustomers.m */,
+				84A51CE81A09298D006D5DA2 /* SAStockItem.h */,
+				84A51CE91A09298D006D5DA2 /* SAStockItem.m */,
+				84A51CEB1A0929B1006D5DA2 /* SACustomer.h */,
+				84A51CEC1A0929B1006D5DA2 /* SACustomer.m */,
+				84A5743D1A0B93E90090F66C /* SAStaticCustomers.h */,
+				84A5743E1A0B93E90090F66C /* SAStaticCustomers.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -371,18 +376,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A51CEA1A09298D006D5DA2 /* StockItem.m in Sources */,
-				84A5743F1A0B93E90090F66C /* StaticCustomers.m in Sources */,
-				84A51CED1A0929B1006D5DA2 /* Customer.m in Sources */,
-				84A51CE31A09023C006D5DA2 /* ProductsViewController.m in Sources */,
-				84A51CE61A090253006D5DA2 /* CustomersViewController.m in Sources */,
-				84A0D8881A0A8462007C7184 /* AddCustomerViewController.m in Sources */,
-				84A0D8851A0A7B12007C7184 /* OrderViewController.m in Sources */,
-				842315BC1A0EC1B6001303A3 /* Toast.m in Sources */,
+				84A51CEA1A09298D006D5DA2 /* SAStockItem.m in Sources */,
+				84A5743F1A0B93E90090F66C /* SAStaticCustomers.m in Sources */,
+				84A51CED1A0929B1006D5DA2 /* SACustomer.m in Sources */,
+				84A51CE31A09023C006D5DA2 /* SAProductsViewController.m in Sources */,
+				84A51CE61A090253006D5DA2 /* SACustomersViewController.m in Sources */,
+				84A0D8881A0A8462007C7184 /* SAAddCustomerViewController.m in Sources */,
+				84A0D8851A0A7B12007C7184 /* SAOrderViewController.m in Sources */,
+				842315BC1A0EC1B6001303A3 /* SAToast.m in Sources */,
 				84F942D01A0CE06400FA830A /* SACustomerModel.xcdatamodeld in Sources */,
 				84A51CBE1A08F422006D5DA2 /* AppDelegate.m in Sources */,
-				84EF0B8A1A099082000A78E2 /* CustomerDetailViewController.m in Sources */,
-				847749191A0E4D5D00098F73 /* Reachability.m in Sources */,
+				84EF0B8A1A099082000A78E2 /* SADetailViewController.m in Sources */,
+				847749191A0E4D5D00098F73 /* SAReachability.m in Sources */,
+				840350721A10169B0084C935 /* SAValidator.m in Sources */,
 				84A51CBB1A08F422006D5DA2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

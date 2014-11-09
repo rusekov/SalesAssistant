@@ -10,7 +10,7 @@
         <!--Customers View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9pv-A4-QxB" customClass="CustomersViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9pv-A4-QxB" customClass="SACustomersViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -94,7 +94,7 @@
         <!--Add Customer View Controller-->
         <scene sceneID="wUo-Rh-vwt">
             <objects>
-                <viewController id="Bq6-Dg-2Ob" customClass="AddCustomerViewController" sceneMemberID="viewController">
+                <viewController id="Bq6-Dg-2Ob" customClass="SAAddCustomerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VJi-QZ-glV"/>
                         <viewControllerLayoutGuide type="bottom" id="eL8-9j-5Ay"/>
@@ -248,10 +248,10 @@
             </objects>
             <point key="canvasLocation" x="3666" y="-298"/>
         </scene>
-        <!--Customer Detail View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="n3B-VI-x1b">
             <objects>
-                <viewController id="JAQ-xV-N8m" customClass="CustomerDetailViewController" sceneMemberID="viewController">
+                <viewController id="JAQ-xV-N8m" customClass="SADetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5aJ-Fb-KoR"/>
                         <viewControllerLayoutGuide type="bottom" id="6mV-z6-ImZ"/>
@@ -380,7 +380,7 @@
         <!--Order View Controller-->
         <scene sceneID="dJS-6N-NFf">
             <objects>
-                <viewController id="xdb-EA-tfO" customClass="OrderViewController" sceneMemberID="viewController">
+                <viewController id="xdb-EA-tfO" customClass="SAOrderViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8CK-kf-fYs"/>
                         <viewControllerLayoutGuide type="bottom" id="xuB-Nf-LQ3"/>
@@ -485,7 +485,7 @@
         <!--Products-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="ProductsViewController" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SAProductsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>

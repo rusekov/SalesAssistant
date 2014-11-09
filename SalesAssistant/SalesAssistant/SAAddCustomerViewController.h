@@ -13,6 +13,6 @@
 #import "SACustomer.h"
 #import "SAStaticCustomers.h"
 
-@interface AddCustomerViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
+@interface SAAddCustomerViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 
 @end
